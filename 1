@@ -1,0 +1,121 @@
+Valuation and Risk Models – 30%
+Valuation
+	Fixed Income Valuation 固定收益/债券
+	Option Valuation 期权
+
+Risk Models
+	Market Risk Measurement and Management
+	Credit Risk Measurement and Management
+	Operational Risk Measurement and Management
+
+Fixed Income Valuation
+a)	Reviews
+b)	Spot, Forward and Par Rates
+c)	Valuation
+d)	Return, Spreads and Yield
+e)	Bond Replication 债券复制
+f)	One-Factor Risk Metrics and Hedges
+g)	Multi-Factor Risk Metrics and Hedges
+ps: a~e is about return (收益), f and g is about Risk（风险）
+Bond Basics
+	A bond is an instrument of indebtedness of the bond issuer to the holders. It is a debt security, under which the issuer owes the holders a debt and depending on the terms of the bond, is obliged to pay them interest ( the coupon ) and repay the principal at a later date, termed the maturity date.
+	Characteristics of bonds
+Coupon rate 利率
+Face value 本金[Par, default is 100(China) or 1000(US)]
+Maturity 到期日
+Yield to maturity (YTM) 持有到期(平均)收益率
+----------
+Borrower(bond issuer) ----Bond---> Lender(bonder holder)
+Borrower(bond issuer) <----$---- Lender(bonder holder)
+
+
+Price 0(?); 1(50)->c; 2(50); 3(50+1000).
+
+PV = ?, PMT = 50, N=3, FV=1000, I/Y=YTM= ?
+Reviews
+三种美国国债
+Treasury Bills(零息债券), Treasury Notes and Treasury Bonds (The last 2 will have coupon)
+	A short-term debt obligation backed by the U.S. government with a maturity of less than one year.
+	A US Treasury bill is a discount instrument: the discount rate is expressed as a percentage of the face value. Consequently, the discount rate is not a true yield.
+	A marketable, fixed-interested U.S. government debt security with a maturity of more than 10 years. Treasury bonds make interest payments semi-annually(半年).
+For US. Short team is bills, and long terms is bonds
+Bond is 32hex
+
+Treasury STRIPS
+	Separate Trading Registered Interest and Principal Securities.
+3-year-bond  pv-------$5---------$5------$5+$100
+C-STRIPS 1     --------$5
+C-STRIPS 2     --------------------$5
+C-STRIPS 3     -----------------------------$5
+P-STRIPS       -----------------------------$100
+
+It can be treats as the treasury bills which is more than 1 year.
+
+	Advantage of STRIPS (Why investors like them)
+They can be combined or re-constructed into any required sequence of cash flows
+More interest-rate sensitive than coupon bearing bonds. (All other things being equal)
+	Disadvantages of STRIPS
+Can be illiquid.流动性不好
+Short term (long-term) c-STRIPS often trade rich. (cheap)
+
+报价系统
+Clean Price(报价) and Dirty Price（成交价）
+	Accrued Interest（累计利息） and Day Count Conventions
+Accrued interest is added to the contract price of a bond transaction. Accrued interest is that which has been earned since the last coupon payment. Because the bond hasn’t expired or the next payment is not yet due, the owner of the bond hasn’t officially received the money. If he or she sells the bond, accrued interest is added to the sale price.
+ 
+AI=$30
+	Three commonly used day count conventions
+Treasury bonds: actual/actual
+Corporate and municipal bonds: 30/360
+Money market instruments (Treasury bills): actual/360
+	Clean Price
+The price of a coupon bond not including any accrued interest. A clean price is the discounted future cash flows, not including any interest accruing on the next coupon payment date Immediately following each coupon payment, the clean price will equal the dirty price.
+	Dirty Price
+A bond pricing quote referring to the price of a coupon bond that includes the present value of all future cash flows, including interest accruing on the next coupon payment.
+Dirty price = Clean price + Accrued interest
+
+I/Y(计算器里面的) = YTM = 折现率
+PMT(Periodic Payment)
+2. Sopt-rate-forward-rate. 00:43:39 example, how to calculate it in calculator ?
+2. Sopt-rate-forward-rate. 00:53:00 example, what’s YTM, discount factor ?
+
+	Discount Factor
+The discount factor. d(t) for a term of (t) years, gives the present value of one unit of currency($1) to be received at the end of that term.
+
+d(t) = 1/(1 + z(t)/2)2t
+美国半年付息一次, 所以需要除以2
+
+Example:
+If d(0.5)=0.97557, the present value of $1 to be received in six months is 97.557 cents. Assume A pays $105 in six months. Given the same discount factor, $105 to be received in six months is worth 0.97557 * $105 = $102.43
+
+	Spot Rate 即期利率
+A t-period spot rate, or zero rate, denoted as Z(t), is the yield to maturity on a zero-coupon bond that matures in t-years.
+The spot rate curve is the graph of the relationship between spot rates and maturity
+The spot rate curve can be derived from either a series of STRIPS prices(零息债券的价格), or the comparable discount factor.
+(1 + Z(t)/2)2t = 1/d(t)  Z(t) = 2[(1/d(t))1/2t-1]
+2. Sopt-rate-forward-rate. 01:02:20 example, what’s spot rate(zero rate)?
+收益率曲线（spot rate curve）
+ 
+
+零息债券的折现率（YTM）= Spot Rate
+
+	Forward Rate
+Forward rates are interest rates corresponding to a future period implied by the spot rate
+All forward rate are computed using spot rates, and all spot rates can be computed using the appropriate forward rates.
+
+0-------------------1--------------------2----------------3
+0~1: z1 
+0~2: z2
+0~3: z3
+ps: zero rate 是年化的.
+1~2: forward rate f1-2
+2~3: forward rate f2-3
+1~3: forward rate f1-3
+
+普通复利
+$1 * (1 + z3)3 = $1 * (1 + z1) * (1 + f1-2) * (1 + f2-3)
+Or  
+(1 + z3)3 = (1 + z2)2 + (1 + f2-3)
+Or 
+(1 + z3)3 = (1 + z1) + (1 + f1-3)2
+连续复利
